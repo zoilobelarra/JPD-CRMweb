@@ -176,7 +176,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GestorDB</title>
+        <title>CRM-JPD</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -197,7 +197,7 @@ export default function Home() {
         <header className="header">
           <div className="header-brand">
             <span className="dot" />
-            GestorDB
+            Gestión integral de la Junta de Personal Docente
           </div>
           <div className="header-actions">
             <button className="btn btn-ghost btn-sm" onClick={() => setShowCatalog(true)}>⚙ Catálogos</button>

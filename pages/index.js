@@ -182,7 +182,6 @@ export default function Home() {
         <title>JPD-CRM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-Gestión integral de la Junta de Personal Docente
       {/* Print header (visible only when printing) */}
       <div className="print-header">
         <h1>Informe de Registros</h1>
@@ -200,7 +199,7 @@ Gestión integral de la Junta de Personal Docente
         <header className="header">
           <div className="header-brand">
             <span className="dot" />
-            GestorDB
+            Gestor Integral de la Junta de Personal Docente
           </div>
           <div className="header-actions">
             <button className="btn btn-ghost btn-sm" onClick={() => setShowCatalog(true)}>⚙ Catálogos</button>

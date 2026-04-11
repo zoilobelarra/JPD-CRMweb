@@ -645,61 +645,130 @@ td.fecha-cell {
   white-space: pre-wrap;
 }
 
-/* ── Print ──────────────────────────────────────────────────── */
+/* ── Print: layout de tarjetas ──────────────────────────────── */
 @media print {
-  .header, .search-section, .filters-bar, .stats-bar .btn,
-  .actions-cell, .btn, .modal-overlay { display: none !important; }
 
+  /* Ocultar controles de UI */
+  .header, .search-section, .filters-bar,
+  .stats-bar, .actions-cell, .btn,
+  .modal-overlay { display: none !important; }
+
+  /* Reset general */
   body {
-    background: white;
-    color: black;
+    background: white !important;
+    color: black !important;
     font-family: 'Courier New', monospace;
-    background-image: none;
+    font-size: 10pt;
+    background-image: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  .table-wrap { border: 1px solid #ccc; border-radius: 0; box-shadow: none; }
-
-  table { font-size: 10px; table-layout: fixed; width: 100%; }
-  th { background: #f0f0f0 !important; color: black !important; }
-  td { color: #222 !important; border-bottom: 1px solid #eee; }
-  tbody tr:hover { background: none !important; }
-
+  /* Cabecera del informe */
   .print-header {
     display: block !important;
     text-align: center;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
     border-bottom: 2px solid #333;
     font-family: 'Courier New', monospace;
   }
-  .print-header h1 { font-size: 16px; margin-bottom: 4px; }
-  .print-header p  { font-size: 10px; color: #666; }
+  .print-header h1 { font-size: 15pt; margin-bottom: 4px; }
+  .print-header p  { font-size: 9pt; color: #555; }
 
-  .badge { background: none !important; border: 1px solid #999 !important; color: black !important; }
-  .link-cell a { color: black; }
+  /* Quitar borde y fondo del contenedor */
+  .table-wrap { border: none !important; box-shadow: none !important; background: white !important; }
+  .table-scroll { overflow: visible !important; }
 
-  .description-cell,
-  td.description-cell {
-    max-width: none !important;
+  /* ── Tabla → tarjetas ──────────────────────────────────────── */
+  table, thead, tbody, tr, th, td { display: block !important; }
+
+  /* Ocultar cabecera de columnas */
+  thead { display: none !important; }
+
+  /* Cada fila = tarjeta */
+  tbody tr {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    margin-bottom: 12px !important;
+    padding: 10px 14px !important;
+    background: white !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  tbody tr:hover { background: white !important; }
+
+  /* Cada celda: etiqueta + valor */
+  tbody td {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    padding: 4px 0 !important;
+    border: none !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    font-size: 9pt !important;
+    color: #111 !important;
+    max-width: 100% !important;
     overflow: visible !important;
     text-overflow: unset !important;
     white-space: normal !important;
-    word-break: break-word;
+    word-break: break-word !important;
+  }
+  tbody td:last-child { border-bottom: none !important; }
+
+  /* Etiqueta de cada campo */
+  tbody td::before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555;
+    flex-shrink: 0;
+    min-width: 90px;
   }
 
-  th:nth-child(5), td:nth-child(5),
-  th:nth-child(7), td:nth-child(7) { width: 28%; white-space: normal !important; word-break: break-word; }
-  th:nth-child(1), td:nth-child(1) { width: 7%; }
-  th:nth-child(2), td:nth-child(2) { width: 9%; }
-  th:nth-child(3), td:nth-child(3) { width: 7%; }
-  th:nth-child(4), td:nth-child(4) { width: 11%; }
-  th:nth-child(6), td:nth-child(6) { width: 8%; }
-  th:nth-child(8), td:nth-child(8) { display: none; }
+  /* Ocultar columna acciones */
+  tbody td[data-label="Acciones"] { display: none !important; }
 
-  td, th { overflow-wrap: break-word; word-break: break-word; }
-  tbody tr { page-break-inside: avoid; }
+  /* Fecha destacada en cabecera de tarjeta */
+  tbody td.fecha-cell {
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    border-bottom: 1px solid #999 !important;
+    margin-bottom: 4px !important;
+    padding-bottom: 6px !important;
+  }
+  tbody td.fecha-cell::before {
+    display: none;
+  }
+
+  /* Descripción y comentarios sin truncar */
+  .description-cell {
+    max-width: 100% !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* Badges simplificados */
+  .badge {
+    background: none !important;
+    border: 1px solid #999 !important;
+    color: #222 !important;
+    padding: 1px 5px !important;
+    font-size: 8pt !important;
+  }
+
+  /* Links en negro */
+  .link-cell a { color: #333; }
+
+  /* Limpiar pseudo-content decorativo */
   th::before, .detail-label::before, .form-label::before,
-  .modal-title::before, .header-brand::before { content: '' !important; }
+  .modal-title::before, .header-brand::before,
+  .stats-bar::before { content: '' !important; }
 }
 
 @media screen {

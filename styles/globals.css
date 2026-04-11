@@ -1,38 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 :root {
-  --bg: #f7f7f9;
-  --bg2: #f0f0f3;
-  --bg3: #e7e7ec;
+  /* Fondos */
+  --bg: #ffffff;
+  --bg2: #f5f6f8;
+  --bg3: #eceef2;
 
+  /* Superficies */
   --surface: #ffffff;
-  --surface2: #f4f4f7;
+  --surface2: #f3f4f7;
 
-  --border: #e2e2e8;
-  --border2: #d4d4dc;
+  /* Bordes */
+  --border: #d9dbe1;
+  --border2: #c9ccd6;
 
-  --accent: #c6e600;
-  --accent2: #a8cc00;
-  --accent-muted: rgba(198, 230, 0, 0.12);
-  --accent-muted2: rgba(198, 230, 0, 0.06);
+  /* Acentos (azul institucional) */
+  --accent: #1e5aa8;
+  --accent2: #174a8a;
+  --accent-muted: rgba(30, 90, 168, 0.12);
+  --accent-muted2: rgba(30, 90, 168, 0.06);
 
-  --text: #1c1c22;
-  --text2: #5a5a66;
-  --text3: #8a8a98;
+  /* Texto (negro real, como pediste) */
+  --text: #000000;
+  --text2: #333333;
+  --text3: #666666;
 
-  --danger: #e5485a;
-  --danger-muted: rgba(229, 72, 90, 0.12);
+  /* Estados */
+  --danger: #c62828;
+  --danger-muted: rgba(198, 40, 40, 0.12);
 
-  --success: #2fbf71;
-  --success-muted: rgba(47, 191, 113, 0.12);
+  --success: #2e7d32;
+  --success-muted: rgba(46, 125, 50, 0.12);
 
-  --warn: #e6952a;
-  --warn-muted: rgba(230, 149, 42, 0.12);
+  --warn: #ed6c02;
+  --warn-muted: rgba(237, 108, 2, 0.12);
 
+  /* UI */
   --radius: 6px;
   --radius-lg: 10px;
 
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow: 0 2px 10px rgba(0,0,0,0.06);
 
   --font-display: 'Syne', sans-serif;
   --font-mono: 'DM Mono', monospace;

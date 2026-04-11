@@ -179,10 +179,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GestorDB</title>
+        <title>JPD-CRM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
+Gestión integral de la Junta de Personal Docente
       {/* Print header (visible only when printing) */}
       <div className="print-header">
         <h1>Informe de Registros</h1>
